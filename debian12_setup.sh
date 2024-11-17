@@ -1,7 +1,7 @@
 #! /bin/bash
 set -x -e
 
-sudo apt-get install ca-certificates build-essential procps curl file git
+sudo apt-get install ca-certificates build-essential procps curl file git -y
 # install brew
 echo | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 echo >> /home/felix_wenzel_shiftavenue_com/.bashrc
