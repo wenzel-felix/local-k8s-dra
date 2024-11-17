@@ -3,7 +3,7 @@ set -x -e
 
 sudo apt-get install ca-certificates build-essential procps curl file git
 # install brew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+echo | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # install kubectl, kind, helm
 brew install kubernetes-cli kind helm
