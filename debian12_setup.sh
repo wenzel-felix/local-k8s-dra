@@ -12,7 +12,9 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 brew install kubernetes-cli kind helm
 
 # docker setup
+set +e
 for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
+set -e
 
 # Add Docker's official GPG key:
 sudo apt-get update
@@ -32,7 +34,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 # install nvidia gpu driver
 wget https://developer.download.nvidia.com/compute/cuda/repos/debian12/x86_64/cuda-keyring_1.1-1_all.deb
 sudo dpkg -i cuda-keyring_1.1-1_all.deb
-sudo add-apt-repository contrib
+# sudo add-apt-repository contrib
 sudo apt-get update
 sudo apt-get -y install cuda-toolkit-12-6
 sudo apt-get install -y nvidia-open
