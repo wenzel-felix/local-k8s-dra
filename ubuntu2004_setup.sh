@@ -10,5 +10,3 @@ cd k8s-dra-driver
 ./demo/clusters/kind/build-dra-driver.sh
 
 ./demo/clusters/kind/install-dra-driver.sh
-
-kubectl get pods -n nvidia
