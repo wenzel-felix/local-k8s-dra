@@ -17,6 +17,9 @@ spec:
       containers:
       - name: ollama
         image: ollama/ollama:latest
+        env:
+        - name: OLLAMA_FLASH_ATTENTION
+          value: "1"
         ports:
         - containerPort: 11434
         command: ["/bin/sh"]
