@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ollama-gpu
+  labels:
+    app: ollama-gpu
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ollama-gpu
+  template:
+    metadata:
+      labels:
+        app: ollama-gpu
+    spec:
+      containers:
+      - name: ollama
+        image: ollama/ollama:latest
+        ports:
+        - containerPort: 11434
+        command: ["/bin/sh"]
+        args: ["-c", "ollama serve"]
+        resources:
+          claims:
+          - name: gpu
+      resourceClaims:
+      - name: gpu
+        source:
+          resourceClaimTemplateName: single-gpu
+---
+apiVersion: resource.k8s.io/v1alpha3
+kind: ResourceClaim
+metadata:
+  name: single-gpu
+spec:
+  spec:
+    devices:
+      requests:
+      - name: gpu
+        deviceClassName: gpu.nvidia.com
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ollama-gpu
+spec:
+  selector:
+    app: ollama-gpu
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 11434
