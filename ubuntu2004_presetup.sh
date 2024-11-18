@@ -44,25 +44,13 @@ curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-contai
 sudo apt-get update
 sudo apt-get install -y nvidia-container-toolkit
 
-echo "##########################"
-echo "Preconfiguration complete"
-echo "##########################"
-
 sudo nvidia-ctk runtime configure --runtime=docker --set-as-default
 sudo systemctl restart docker
 sudo nvidia-ctk config --in-place --set accept-nvidia-visible-devices-as-volume-mounts=true
 nvidia-smi -L
 
+echo "##########################"
+echo "Preconfiguration complete"
+echo "##########################"
 
-git clone https://github.com/NVIDIA/k8s-dra-driver.git
-cd k8s-dra-driver
-
-find ./demo/clusters/kind -type f -print0 | xargs -0 sed -i 's/\bdocker\b/sudo docker/g'
-
-./demo/clusters/kind/create-cluster.sh
-
-./demo/clusters/kind/build-dra-driver.sh
-
-./demo/clusters/kind/install-dra-driver.sh
-
-kubectl get pods -n nvidia
+sudo usermod -aG docker $USER
