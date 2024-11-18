@@ -27,7 +27,7 @@ spec:
       resourceClaims:
       - name: gpu
         source:
-          resourceClaimTemplateName: single-gpu
+          resourceClaimName: single-gpu
 ---
 apiVersion: resource.k8s.io/v1alpha3
 kind: ResourceClaim
