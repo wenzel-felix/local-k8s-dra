@@ -54,3 +54,4 @@ echo "Preconfiguration complete"
 echo "##########################"
 
 sudo usermod -aG docker $USER
+newgrp docker
