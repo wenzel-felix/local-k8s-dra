@@ -34,11 +34,10 @@ kind: ResourceClaim
 metadata:
   name: single-gpu
 spec:
-  spec:
-    devices:
-      requests:
-      - name: gpu
-        deviceClassName: gpu.nvidia.com
+  devices:
+    requests:
+    - name: gpu
+      deviceClassName: gpu.nvidia.com
 ---
 apiVersion: v1
 kind: Service
