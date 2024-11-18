@@ -4,8 +4,8 @@ set -x -e
 sudo apt-get install ca-certificates build-essential procps curl file git -y
 # install brew
 echo | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-echo >> /home/felix_wenzel_shiftavenue_com/.bashrc
-echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/felix_wenzel_shiftavenue_com/.bashrc
+echo >> $HOME/.bashrc
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> $HOME/.bashrc
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # install kubectl, kind, helm
