@@ -23,13 +23,38 @@ spec:
         args: 
         - -c
         - |
+          if [ "$EUID" -ne 0 ]
+            then echo "Please run as root"
+            exit
+          fi
+
+          if ! command -v adduser &> /dev/null; then
+            echo "adduser command not found. Installing..."
+            apt update
+            apt install -y adduser
+          fi
+
+          # Create user and add to sudo group
+          adduser sduser
+          if [ $? -ne 0 ]; then
+            echo "Failed to create user sduser"
+            exit 1
+          fi
+
+          usermod -aG sudo sduser
+          
           apt update
           apt install git software-properties-common -y
           add-apt-repository ppa:deadsnakes/ppa -y
           apt install python3.10-venv -y
-          git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui && cd stable-diffusion-webui
-          python3.10 -m venv venv
-          ./webui.sh
+          git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui
+          
+          chown -R sduser:sduser stable-diffusion-webui
+          
+          cd stable-diffusion-webui
+          su sduser -c "python3.10 -m venv venv && \
+          source venv/bin/activate && \
+          ./webui.sh --listen"
         resources:
           claims:
           - name: gpu
