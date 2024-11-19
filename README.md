@@ -22,5 +22,17 @@ NGROK_DOMAIN=<your-ngrok-domain>
 chmod +x ingress/install_ngrok.sh
 ./ingress/install_ngrok.sh
 ```
+
+## Run OpenWeb UI in Docker
+```
+docker run -d -p 3000:8080 \
+  -e AUTOMATIC1111_BASE_URL=https://$NGROK_DOMAIN/ \
+  -e OLLAMA_BASE_URL=https://$NGROK_DOMAIN \
+  -e ENABLE_IMAGE_GENERATION=True \
+  -v open-webui:/app/backend/data \
+  --name open-webui --restart always ghcr.io/open-webui/open-webui:main 
+```
+
+
 ### Slides
 https://docs.google.com/presentation/d/1ntjAJ7AehyIWxXggmjYiU8bW7D3liR7U6Dw5YbgDSTU/edit?usp=sharing
