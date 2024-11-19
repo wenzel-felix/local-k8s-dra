@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: automatic1111
+  labels:
+    app: automatic1111
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: automatic1111
+  template:
+    metadata:
+      labels:
+        app: automatic1111
+    spec:
+      containers:
+      - name: automatic1111
+        image: ubuntu:noble
+        ports:
+        - containerPort: 7860
+        command: ["/bin/sh"]
+        args: 
+        - -c
+        - |
+          sudo apt install git software-properties-common -y
+          sudo add-apt-repository ppa:deadsnakes/ppa -y
+          sudo apt install python3.10-venv -y
+          git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui && cd stable-diffusion-webui
+          python3.10 -m venv venv
+          ./webui.sh
+        resources:
+          claims:
+          - name: gpu
+      resourceClaims:
+      - name: gpu
+        resourceClaimName: single-gpu
+---
+apiVersion: resource.k8s.io/v1alpha3
+kind: ResourceClaim
+metadata:
+  name: single-gpu
+spec:
+  devices:
+    requests:
+    - name: gpu
+      deviceClassName: gpu.nvidia.com
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: automatic1111-service
+spec:
+  selector:
+    app: automatic1111
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 7860
