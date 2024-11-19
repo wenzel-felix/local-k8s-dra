@@ -49,6 +49,8 @@ sudo systemctl restart docker
 sudo nvidia-ctk config --in-place --set accept-nvidia-visible-devices-as-volume-mounts=true
 nvidia-smi -L
 
+git clone https://github.com/NVIDIA/k8s-dra-driver.git
+
 echo "##########################"
 echo "Preconfiguration complete"
 echo "##########################"
