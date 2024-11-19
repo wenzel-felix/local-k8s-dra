@@ -23,9 +23,10 @@ spec:
         args: 
         - -c
         - |
-          sudo apt install git software-properties-common -y
-          sudo add-apt-repository ppa:deadsnakes/ppa -y
-          sudo apt install python3.10-venv -y
+          apt update
+          apt install git software-properties-common -y
+          add-apt-repository ppa:deadsnakes/ppa -y
+          apt install python3.10-venv -y
           git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui && cd stable-diffusion-webui
           python3.10 -m venv venv
           ./webui.sh
