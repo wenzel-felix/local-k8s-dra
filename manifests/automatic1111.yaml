@@ -45,10 +45,10 @@ spec:
           usermod -aG sudo sduser
 
           apt update
-          apt install wget software-properties-common git python3.10-venv libgl1 libglib2.0-0 -y
+          apt install wget software-properties-common git libgl1 libglib2.0-0 -y
           add-apt-repository ppa:deadsnakes/ppa
           apt update
-          apt install python3.10 -y
+          apt install python3.10 python3.10-venv -y
 
           git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui
           chown -R sduser:sduser stable-diffusion-webui
