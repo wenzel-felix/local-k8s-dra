@@ -57,7 +57,7 @@ spec:
           su sduser -c "python3.10 -m venv venv && \
           source venv/bin/activate && \
           pip install torch==2.1.2 && \
-          ./webui.sh"
+          ./webui.sh --api"
         resources:
           claims:
           - name: gpu
