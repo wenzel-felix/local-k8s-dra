@@ -13,5 +13,14 @@ Follow the official setup https://github.com/NVIDIA/k8s-dra-driver/tree/main?tab
 kubectl apply -f manifests/*
 ```
 
+## (optional - for remote deployments) Create Ngrok Ingress
+**Note:** You need a Ngrok account to follow these steps
+```
+NGROK_AP1_KEY=<your-apikey>
+NGROK_AUTHTOKEN=<your-authtoken>
+NGROK_DOMAIN=<your-ngrok-domain>
+chmod +x ingress/install_ngrok.sh
+./ingress/install_ngrok.sh
+```
 ### Slides
 https://docs.google.com/presentation/d/1ntjAJ7AehyIWxXggmjYiU8bW7D3liR7U6Dw5YbgDSTU/edit?usp=sharing
