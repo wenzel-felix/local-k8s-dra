@@ -54,9 +54,9 @@ spec:
           chown -R sduser:sduser stable-diffusion-webui
           cd stable-diffusion-webui
 
-          sleep 3600
           su sduser -c "python3.10 -m venv venv && \
           source venv/bin/activate && \
+          pip install torch==2.1.2 && \
           ./webui.sh"
         resources:
           claims:
