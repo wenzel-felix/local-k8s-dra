@@ -10,7 +10,7 @@ Follow the official setup https://github.com/NVIDIA/k8s-dra-driver/tree/main?tab
 
 ## Apply ollama setup
 ```
-kubectl apply -f manifests/*
+kubectl apply -f manifests/
 ```
 
 ## (optional - for remote deployments) Create Ngrok Ingress
@@ -19,6 +19,8 @@ kubectl apply -f manifests/*
 NGROK_API_KEY=<your-apikey>
 NGROK_AUTHTOKEN=<your-authtoken>
 NGROK_DOMAIN=<your-ngrok-domain>
+helm repo add ngrok https://ngrok.github.io/kubernetes-ingress-controller
+helm repo update
 chmod +x ingress/install_ngrok.sh
 ./ingress/install_ngrok.sh
 ```
