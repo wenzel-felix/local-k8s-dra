@@ -55,6 +55,15 @@ spec:
           cd stable-diffusion-webui
           echo 'export ACCELERATE="True"' >> webui-user.sh
 
+          # git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui
+          # cd stable-diffusion-webui
+          # python -m venv venv
+          # source venv/bin/activate
+          # python -m pip install --upgrade pip wheel
+
+          # It's possible that you don't need "--precision full", dropping "--no-half" however crashes my drivers
+          # TORCH_COMMAND='pip install torch torchvision --extra-index-url https://download.pytorch.org/whl/rocm5.1.1' python launch.py --precision full --no-half
+
           su sduser -c "python3.10 -m venv venv && \
           source venv/bin/activate && \
           ./webui.sh --listen  --api  --api-log --nowebui"
