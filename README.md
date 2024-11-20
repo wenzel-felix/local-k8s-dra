@@ -1,7 +1,7 @@
 # Setup on any Ubuntu 20.04 VM
 ## Preconfig
 ```
-git clone git@github.com:wenzel-felix/local-k8s-dra.git
+git clone https://github.com/wenzel-felix/local-k8s-dra.git
 chmod +x setup.sh
 ./setup.sh
 ```
