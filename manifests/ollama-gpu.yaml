@@ -27,9 +27,10 @@ spec:
         resources:
           claims:
           - name: gpu
+            requests: mps-gpu
       resourceClaims:
       - name: gpu
-        resourceClaimName: mig-1g-8gb-1
+        resourceClaimName: mps-gpu
 ---
 apiVersion: v1
 kind: Service
