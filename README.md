@@ -16,7 +16,7 @@ kubectl apply -f manifests/*
 ## (optional - for remote deployments) Create Ngrok Ingress
 **Note:** You need a Ngrok account to follow these steps
 ```
-NGROK_AP1_KEY=<your-apikey>
+NGROK_API_KEY=<your-apikey>
 NGROK_AUTHTOKEN=<your-authtoken>
 NGROK_DOMAIN=<your-ngrok-domain>
 chmod +x ingress/install_ngrok.sh
