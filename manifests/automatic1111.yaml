@@ -64,7 +64,7 @@ spec:
             request: mps-gpu
       resourceClaims:
       - name: gpu
-        resourceClaimName: mps-gpu
+        resourceClaimName: shared-gpu
 ---
 apiVersion: v1
 kind: Service
