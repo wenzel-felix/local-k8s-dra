@@ -2,8 +2,8 @@
 ## Preconfig
 ```
 git clone https://github.com/wenzel-felix/local-k8s-dra.git
-chmod +x local-k8s-dra/setup.sh
-./local-k8s-dra/setup.sh
+chmod +x local-k8s-dra/ubuntu2404_presetup.sh
+./local-k8s-dra/ubuntu2404_presetup.sh
 ```
 ## Follow dra installation 
 Follow the official setup https://github.com/NVIDIA/k8s-dra-driver/tree/main?tab=readme-ov-file#setting-up-the-infrastructure
