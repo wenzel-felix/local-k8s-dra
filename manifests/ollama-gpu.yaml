@@ -27,7 +27,7 @@ spec:
         resources:
           claims:
           - name: gpu
-            requests: mps-gpu
+            request: mps-gpu
       resourceClaims:
       - name: gpu
         resourceClaimName: mps-gpu
