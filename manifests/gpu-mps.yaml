@@ -3,20 +3,19 @@ kind: ResourceClaimTemplate
 metadata:
   name: shared-gpu
 spec:
-  spec:
-    devices:
-      requests:
-      - name: mps-gpu
-        deviceClassName: gpu.nvidia.com
-      config:
-      - requests: ["mps-gpu"]
-        opaque:
-          driver: gpu.nvidia.com
-          parameters:
-            apiVersion: gpu.nvidia.com/v1alpha1
-            kind: GpuConfig
-            sharing:
-              strategy: MPS
-              mpsConfig:
-                defaultActiveThreadPercentage: 50
-                defaultPinnedDeviceMemoryLimit: 10Gi
+  devices:
+    requests:
+    - name: mps-gpu
+      deviceClassName: gpu.nvidia.com
+    config:
+    - requests: ["mps-gpu"]
+      opaque:
+        driver: gpu.nvidia.com
+        parameters:
+          apiVersion: gpu.nvidia.com/v1alpha1
+          kind: GpuConfig
+          sharing:
+            strategy: MPS
+            mpsConfig:
+              defaultActiveThreadPercentage: 50
+              defaultPinnedDeviceMemoryLimit: 10Gi
