@@ -27,7 +27,6 @@ spec:
         resources:
           claims:
           - name: gpu
-            request: mps-gpu
       resourceClaims:
       - name: gpu
         resourceClaimName: shared-gpu
