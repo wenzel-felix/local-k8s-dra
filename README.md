@@ -1,4 +1,4 @@
-# Setup on any Ubuntu 20.04 VM
+# Setup on any Ubuntu 24.04 VM
 ## Preconfig
 ```
 git clone https://github.com/wenzel-felix/local-k8s-dra.git
