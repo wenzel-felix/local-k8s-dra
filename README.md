@@ -19,6 +19,8 @@ kubectl apply -f manifests/
 NGROK_API_KEY=<your-apikey>
 NGROK_AUTHTOKEN=<your-authtoken>
 NGROK_DOMAIN=<your-ngrok-domain>
+```
+```
 helm repo add ngrok https://ngrok.github.io/kubernetes-ingress-controller
 helm repo update
 chmod +x ingress/install_ngrok.sh
