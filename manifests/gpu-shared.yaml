@@ -7,3 +7,7 @@ spec:
     requests:
     - name: shared-gpu
       deviceClassName: gpu.nvidia.com
+      selectors:
+      - cel:
+          expression: |
+            device.attributes['gpu.nvidia.com'].productName.lowerAscii().matches('^.*t4.*$')
