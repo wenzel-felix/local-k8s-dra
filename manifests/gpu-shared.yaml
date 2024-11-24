@@ -1,0 +1,9 @@
+apiVersion: resource.k8s.io/v1alpha3
+kind: ResourceClaim
+metadata:
+  name: shared-gpu
+spec:
+  devices:
+    requests:
+    - name: mps-gpu
+      deviceClassName: gpu.nvidia.com
