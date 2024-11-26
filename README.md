@@ -16,9 +16,9 @@ kubectl apply -f manifests/
 ## (optional - for remote deployments) Create Ngrok Ingress
 **Note:** You need a Ngrok account to follow these steps
 ```
-NGROK_API_KEY=<your-apikey>
-NGROK_AUTHTOKEN=<your-authtoken>
-NGROK_DOMAIN=<your-ngrok-domain>
+export NGROK_API_KEY=<your-apikey>
+export NGROK_AUTHTOKEN=<your-authtoken>
+export NGROK_DOMAIN=<your-ngrok-domain>
 ```
 ```
 helm repo add ngrok https://ngrok.github.io/kubernetes-ingress-controller
