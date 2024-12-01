@@ -5,7 +5,7 @@ git clone https://github.com/wenzel-felix/local-k8s-dra.git
 chmod +x local-k8s-dra/ubuntu2404_presetup.sh
 ./local-k8s-dra/ubuntu2404_presetup.sh
 ```
-## Follow dra installation 
+## Follow DRA installation 
 Follow the official setup https://github.com/NVIDIA/k8s-dra-driver/tree/main?tab=readme-ov-file#setting-up-the-infrastructure
 ```
 cd k8s-dra-driver
@@ -16,8 +16,9 @@ cd k8s-dra-driver
 
 
 
-## Apply ollama setup
+## Apply application setup
 ```
+cd ../local-k8s-dra
 kubectl apply -f manifests/
 ```
 
