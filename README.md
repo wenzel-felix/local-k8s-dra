@@ -7,6 +7,14 @@ chmod +x local-k8s-dra/ubuntu2404_presetup.sh
 ```
 ## Follow dra installation 
 Follow the official setup https://github.com/NVIDIA/k8s-dra-driver/tree/main?tab=readme-ov-file#setting-up-the-infrastructure
+```
+cd k8s-dra-driver
+./demo/clusters/kind/create-cluster.sh
+./demo/clusters/kind/build-dra-driver.sh
+./demo/clusters/kind/install-dra-driver.sh
+```
+
+
 
 ## Apply ollama setup
 ```
